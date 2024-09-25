@@ -1,38 +1,116 @@
+/* General Styles for the App */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh; /* Full viewport height */
+  background-color: #282c34;
+  color: white;
+  overflow: hidden; /* Prevent overflow and scrolling */
+}
+
+
+
+/* Container for File Upload */
+.upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full viewport width */
+  background-color: #282c34;
+  color: white;
+  overflow: hidden; /* Prevent scroll */
+}
+
+/* File Input Styling */
+.file-input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Main Container - Sidebar + Model Viewer */
+.container {
+  display: flex;
+  height: calc(100vh - 50px); /* Full height minus space for the title bar */
+  width: 100vw; /* Full viewport width */
+  overflow: hidden; /* Prevent scroll */
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 12%; /* Make sidebar 20% of the screen width */
+  min-width: 200px; /* Minimum width for small screens */
+  height: 100%;
+  padding: 20px;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; /* Allow scrolling within the sidebar */
+}
+
+.sidebar h3 {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Model Viewer Styling */
+.model-viewer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  width: 80vw; /* Model viewer takes 80% of screen width */
+  overflow: hidden; /* Prevent scroll */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Color Picker and Sliders */
+.color-picker,
+.slider {
+  margin: 20px 0;
+  width: 100%;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+/* Canvas Styling */
+canvas {
+  max-width: 100%; /* Ensure canvas resizes to fit container */
+  max-height: 100%; /* Ensure canvas resizes to fit container */
+  width: 100%; /* Fill available width */
+  height: 100%; /* Fill available height */
+  display: block; /* Avoid extra space below canvas */
+}
+
+/* Media Queries for Small Screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack sidebar and model viewer vertically */
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar {
+    width: 100%; /* Make sidebar full-width */
+    height: 30vh; /* Occupy 30% of viewport height */
+  }
+
+  .model-viewer {
+    width: 100%;
+    height: 70vh; /* Occupy 70% of viewport height */
+  }
+}
+
+/* Media Queries for Extra Small Screens */
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 10px; /* Reduce padding */
+    height: 40vh; /* Adjust height for extra small screens */
+  }
+
+  .model-viewer {
+    height: 60vh; /* Adjust height for extra small screens */
   }
 }
